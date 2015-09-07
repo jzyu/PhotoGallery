@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.ViewTarget;
@@ -41,7 +40,7 @@ public class PhotoGalleryActivity extends Activity implements View.OnClickListen
         mViewPager.setCurrentItem(getIntent().getIntExtra(EXTRA_POSITION, 0));
 
         findViewById(R.id.button_original).setOnClickListener(this);
-        findViewById(R.id.button_save).setOnClickListener(this);
+        //findViewById(R.id.button_save).setOnClickListener(this);
     }
 
     private void initFunctionalView(int position) {
@@ -70,9 +69,9 @@ public class PhotoGalleryActivity extends Activity implements View.OnClickListen
 
             mUrls[pos] = newUrl;
             v.setVisibility(View.INVISIBLE);
-        } else if (v.getId() == R.id.button_save) {
+        }/* else if (v.getId() == R.id.button_save) {
             Toast.makeText(this, "save", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     class SamplePagerAdapter extends PagerAdapter {
@@ -84,12 +83,11 @@ public class PhotoGalleryActivity extends Activity implements View.OnClickListen
 
         @Override
         public View instantiateItem(ViewGroup container, int position) {
-            PhotoView photoView = new PhotoView(container.getContext());
-            String url = mResizer.getUrlForScreen(mUrls[position]);
             container.setBackgroundColor(Color.BLACK);
 
+            PhotoView photoView = new PhotoView(container.getContext());
             Glide.with(PhotoGalleryActivity.this)
-                    .load(url)
+                    .load(mResizer.getUrlForScreen(mUrls[position]))
                     .into(photoView);
             container.addView(photoView, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 

@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
         findViewById(R.id.button_test).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(PhotoGalleryActivity.newIntent(MainActivity.this, sUrls));
+                startActivity(PhotoGalleryActivity.newIntent(MainActivity.this, sUrls, 1));
             }
         });
     }
