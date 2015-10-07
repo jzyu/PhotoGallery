@@ -31,6 +31,7 @@ public class PhotoGalleryActivity extends Activity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photogallery);
 
+        //为glide设置全局tag id，避免ImageView Tag被glide占用
         ViewTarget.setTagId(R.id.glide_request);
 
         mUrls = getIntent().getStringArrayExtra(EXTRA_URLS);
@@ -117,5 +118,9 @@ public class PhotoGalleryActivity extends Activity implements View.OnClickListen
         intent.putExtra(EXTRA_URLS, urls);
         intent.putExtra(EXTRA_POSITION, position);
         return intent;
+    }
+
+    private String getFitnessImageUrl(String url) {
+        return null;
     }
 }
