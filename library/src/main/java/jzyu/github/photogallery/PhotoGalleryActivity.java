@@ -13,6 +13,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.request.target.ViewTarget;
 
 import uk.co.senab.photoview.PhotoView;
@@ -118,9 +119,5 @@ public class PhotoGalleryActivity extends Activity implements View.OnClickListen
         intent.putExtra(EXTRA_URLS, urls);
         intent.putExtra(EXTRA_POSITION, position);
         return intent;
-    }
-
-    private String getFitnessImageUrl(String url) {
-        return null;
     }
 }
